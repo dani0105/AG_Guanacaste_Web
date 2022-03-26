@@ -1,0 +1,40 @@
+<mat-toolbar color="warn">
+  <button mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>AC Guanacaste</span>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav opened="true">
+    <div class="container-fluid">
+      <div class="row mt-4">
+        <div class="col-12 text-center">
+          <mat-icon class="icon-profile">
+            account_circle
+          </mat-icon>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-12">
+          <h2 class="mb-0">Menú</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul class="list-unstyled ml-0 mb-0 ">
+            <li class="menu-list-item p-2" *ngFor="let item of this.Menu">
+              <a class="text-decoration-none" [routerLink]="[item.link]">
+                <h3 class="mb-0">
+                  {{ item.label }}
+                </h3>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

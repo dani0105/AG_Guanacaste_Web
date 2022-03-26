@@ -1,0 +1,13 @@
+@mixin button-variant(
+  $background,
+  $color:contrast-color($background),
+) {
+  background-color: $background;
+  color: $color;
+  &:hover {
+    background-color: tint-color($background,15);
+  }
+  &:disabled, &.disabled {
+    opacity: 0.6;
+  }
+}

@@ -1,0 +1,13 @@
+@use "sass:math";
+
+@function shade-color($background,$weight){
+  @return  mix($black, $background, $weight);
+}
+
+@function contrast-color($color) {
+  @return if(lightness($color) < $threshold, $white, $black);
+}
+
+@function tint-color($background,$weight){
+  @return  mix($white, $background, $weight);
+}

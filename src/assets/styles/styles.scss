@@ -1,0 +1,10 @@
+@import "../../../node_modules/bootstrap/scss/_functions.scss";
+@import "../../../node_modules/bootstrap/scss/_variables.scss";
+
+$border-radius-lg: 25px;
+$light:#FFFCF8;
+$body-bg: $light;
+
+
+/* finally, import Bootstrap */
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";

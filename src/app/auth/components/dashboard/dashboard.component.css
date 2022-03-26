@@ -1,0 +1,36 @@
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+
+mat-sidenav {
+  width: 300px;
+  border-right: none;
+  background-color: #FFF4EA;
+}
+
+.content {
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-list-item {
+  border-bottom: 1px solid rgb(179, 179, 179);
+  cursor: pointer;
+}
+
+.menu-list-item:hover {
+  background-color: #FFEAD7;
+}
+
+.icon-profile {
+  --size: 120px;
+  font-size: var(--size);
+  height: var(--size);
+  width: var(--size);
+}

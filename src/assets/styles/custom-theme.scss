@@ -1,0 +1,34 @@
+@import '~@angular/material/theming';
+
+$body-text: 15px;
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config(
+  $font-family: 'Lato, sans-serif',
+  $headline: mat-typography-level(30px, 34px, 800),
+  $title: mat-typography-level(24px, 28.8px, 700),
+  $subheading-2: mat-typography-level(18px, 21px, 700),
+  $body-1: mat-typography-level($body-text, 16px, 400)
+);
+
+@include mat-core($custom-typography);
+@import './palette.scss';
+
+$primary: mat-palette($md-primary);
+$accent: mat-palette($md-accent, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$warn: mat-palette($md-warn);
+
+$light-theme: mat-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,  
+  )
+));
+
+$background: map-get($light-theme, background);
+
+@include angular-material-theme($light-theme);
