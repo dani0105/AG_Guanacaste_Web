@@ -3,6 +3,10 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>AC Guanacaste</span>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="this.logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav [opened]="this.MenuState">

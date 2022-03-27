@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '@core/services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,7 +21,8 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  constructor() {
+  constructor(private userService: UserService,
+    private router: Router,) {
     this.menu_items = [
       { link: 'users', label: 'Usuarios' },
       { link: 'touristic-areas', label: 'Áreas Turisticas' }
@@ -30,7 +33,13 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public toggleMenu(){
+  public toggleMenu() {
     this.menu_state = !this.menu_state;
+  }
+
+
+  public logout() {
+    this.userService.logout();
+    this.router.navigate(['/'])
   }
 }

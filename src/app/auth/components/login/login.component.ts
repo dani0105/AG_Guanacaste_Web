@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '@core/services';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../services';
 
 @Component({
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
     return this.form;
   }
 
-  constructor(private authService: AuthService, private userService: UserService, private router: Router) { }
+  constructor(private authService: AuthService, private userService: UserService, private router: Router, private toastService:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -28,11 +29,11 @@ export class LoginComponent implements OnInit {
   onSubmit(data) {
     this.authService.login(data).subscribe(result => {
       if (result.success) {
-        console.log(result);
+        this.toastService.success('Credenciales validas');
         this.userService.setUser(result.data);
         this.router.navigate(['/dashboard/users']);
       } else {
-
+        this.toastService.info(result.error.message);
       }
     })
   }
