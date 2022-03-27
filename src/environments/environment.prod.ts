@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   app_name: "AC Guanacaste",
-  api: "http://localhost:8080"
+  api: "https://api-ag-guanacaste.herokuapp.com"
 };
