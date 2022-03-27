@@ -1,14 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AuthModule } from '../../auth.module';
 import { environment } from '@enviroment/environment';
 
 const URL = `${environment.api}/auth`;
 
-@Injectable({
-  providedIn: AuthModule
-})
+@Injectable()
 export class AuthService {
 
   constructor(private http: HttpClient) { }

@@ -1,11 +1,11 @@
 <mat-toolbar color="warn">
-  <button mat-icon-button>
+  <button mat-icon-button (click)="this.toggleMenu()">
     <mat-icon>menu</mat-icon>
   </button>
   <span>AC Guanacaste</span>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav opened="true">
+  <mat-sidenav [opened]="this.MenuState">
     <div class="container-fluid">
       <div class="row mt-4">
         <div class="col-12 text-center">
@@ -23,7 +23,7 @@
         <div class="col-12">
           <ul class="list-unstyled ml-0 mb-0 ">
             <li class="menu-list-item p-2" *ngFor="let item of this.Menu">
-              <a class="text-decoration-none" [routerLink]="[item.link]">
+              <a class="text-decoration-none text-dark" [routerLink]="[item.link]">
                 <h3 class="mb-0">
                   {{ item.label }}
                 </h3>

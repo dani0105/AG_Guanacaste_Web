@@ -1,0 +1,20 @@
+.dropzone{
+  border: 1px solid #FFEAD7;
+  color: #FFEAD7;
+  height: 150px;
+}
+
+.dropzone input{
+  height: 150px;
+}
+
+.dropzone input{
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;  
+}
+
+.img{
+  max-width: 100px;
+}

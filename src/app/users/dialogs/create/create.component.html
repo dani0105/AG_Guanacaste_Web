@@ -1,0 +1,91 @@
+<form class="container-fluid" [formGroup]="this.Form" (submit)="this.onSubmit(this.Form.value)">
+  <div class="row ">
+    <div class="col-12">
+      <h1 class="mb-0 text-primary"> {{ this.data.isEditing? 'Editar':'Crear' }} usario</h1>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <mat-form-field class="w-100" appearance="fill" color="warn">
+        <button mat-icon-button matPrefix>
+          <mat-icon>person</mat-icon>
+        </button>
+        <mat-label>Nombre</mat-label>
+        <input type="text" matInput formControlName="name">
+
+        <div *ngIf="this.Form.get('name').errors  && (this.Form.get('name').dirty || this.Form.get('name').touched) ">
+          <small class="text-secondary" *ngIf="this.Form.get('name').hasError('required')">
+            Campo requerido
+          </small>
+        </div>
+
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <mat-form-field class="w-100" appearance="fill" color="warn">
+        <button mat-icon-button matPrefix>
+          <mat-icon>email</mat-icon>
+        </button>
+        <mat-label>Correo</mat-label>
+        <input type="email" matInput formControlName="email">
+        <div
+          *ngIf="this.Form.get('email').errors  && (this.Form.get('email').dirty || this.Form.get('email').touched) ">
+          <small class="text-secondary" *ngIf="this.Form.get('email').hasError('required')">
+            Campo requerido
+          </small>
+          <small class="text-secondary" *ngIf="this.Form.get('email').hasError('email')">
+            Formato invalido
+          </small>
+        </div>
+
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <mat-form-field class="w-100" appearance="fill" color="warn">
+        <button mat-icon-button matPrefix>
+          <mat-icon>lock</mat-icon>
+        </button>
+        <mat-label>Contraseña</mat-label>
+        <input type="password" matInput formControlName="password">
+        <div
+          *ngIf="this.Form.get('password').errors  && (this.Form.get('password').dirty || this.Form.get('password').touched) ">
+          <small class="text-secondary" *ngIf="this.Form.get('password').hasError('required')">
+            Campo requerido
+          </small>
+          <small class="text-secondary" *ngIf="this.Form.get('password').hasError('minlength')">
+            Minimo 8 carateres
+          </small>
+        </div>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Rol</mat-label>
+        <mat-select formControlName="id_rol">
+          <mat-option *ngFor="let rol of this.data.roles" [value]="rol.id">
+            {{ rol.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <button mat-flat-button color="primary" [disabled]="this.Form.invalid" class="rounded-lg p-2 btn-block"
+        type="submit">
+        <h3 class="mb-0">Guardar</h3>
+      </button>
+    </div>
+  </div>
+</form>

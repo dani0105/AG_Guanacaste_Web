@@ -1,7 +1,7 @@
-<div class="bg-primary h-100">
+<div class="bg-primary background">
 
   <div class="login-container bg-white rounded-lg">
-    <form class="container-fluid"> 
+    <form class="container-fluid" [formGroup]="this.Form" (submit)="this.onSubmit(this.Form.value)"> 
       <div class="row mt-5"> 
         <div class="col-12"> 
           <h1 class="text-primary text-center">Bienvenido!</h1>
@@ -9,21 +9,32 @@
       </div> 
 
       <div class="row justify-content-center mt-4"> 
-        <div class="col-12 col-sm-8"> 
-          <input class="text-field w-100 rounded-lg shadow-sm" placeholder="Correo">
+        <div class="col-12 col-sm-9"> 
+          <mat-form-field class="w-100" appearance="fill" color="warn">
+            <button mat-icon-button matPrefix>
+              <mat-icon>email</mat-icon>
+            </button>
+            <mat-label>Correo</mat-label>
+            <input matInput placeholder="example@gmail.com" formControlName="email">
+          </mat-form-field>
         </div> 
       </div> 
 
       <div class="row justify-content-center mt-4 mb-5"> 
-        <div class="col-12 col-sm-8"> 
-          <input class="text-field w-100 rounded-lg shadow-sm" placeholder="Contraseña">
+        <div class="col-12 col-sm-9"> 
+          <mat-form-field class="w-100" appearance="fill" color="warn">
+            <button mat-icon-button matPrefix>
+              <mat-icon>lock</mat-icon>
+            </button>
+            <mat-label>Contraseña</mat-label>
+            <input type="password" matInput formControlName="password">
+          </mat-form-field>
         </div> 
       </div> 
 
       <div class="row justify-content-center mt-5 mb-5"> 
         <div class="col-6 "> 
-          <a [routerLink]="['dashboard']">ingresar</a>
-          <button class="btn btn-primary btn-block rounded-lg">
+          <button mat-flat-button color="primary" [disabled]="this.Form.invalid" class="btn btn-primary btn-block rounded-lg p-2">
             <h3 class="mb-0">Ingresar</h3>
           </button>
         </div> 

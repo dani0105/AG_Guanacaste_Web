@@ -2,9 +2,88 @@
 @import "../../../node_modules/bootstrap/scss/_variables.scss";
 
 $border-radius-lg: 25px;
+$primary:#1f4d37;
+$primary-light:#8BC7AB;
+$secondary:#c56a19;
+$secondary-light:#8BC7AB;
+$dark:#6B7078;
+$warn:#c56a19;
 $light:#FFFCF8;
 $body-bg: $light;
+$background:#FFEAD7;
+
+$theme-colors: (
+  primary: $primary,
+  primary-light: $primary-light,
+  light: $light,
+  dark: $dark,
+  secondary: $secondary,
+  secondary-light: $secondary-light
+);
+
+
+// material
+.mat-table{
+  background-color: transparent;
+}
+
+tr.mat-header-row{
+  height: 45px;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color :$background;
+  box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+  -webkit-box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+  -moz-box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+}
+
+.mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+.mat-form-field-flex{
+  border-radius: 50px !important;
+}
+
+.mat-form-field-underline{
+  display: none;
+}
+
+.ck-toolbar{
+  background-color: $background !important;
+  color: red !important;
+}
+
+.ck-icon{
+  color: $warn !important;
+}
+
+.ck-content{
+  height: 300px;
+}
+
+.mat-paginator{
+  background-color: transparent;
+}
 
 
 /* finally, import Bootstrap */
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+// bootstrap styles
+
+
+
+
+
+
+
+// toaster styles 
+
+// regular style toast
+@import '~ngx-toastr/toastr';
+
+// bootstrap style toast
+// or import a bootstrap 4 alert styled design (SASS ONLY)
+// should be after your bootstrap imports, it uses bs4 variables, mixins, functions
+@import '~ngx-toastr/toastr-bs4-alert';

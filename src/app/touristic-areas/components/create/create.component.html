@@ -1,1 +1,117 @@
-<p>create works!</p>
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex">
+        <a [routerLink]="['/dashboard','touristic-areas']" mat-mini-fab color="warn" class="shadow-none">
+          <mat-icon>arrow_back_ios_new</mat-icon>
+        </a>
+        <h1 class="mb-0 ml-4 text-primary">
+          Administrar Área
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <form class="mt-5 mb-3 pb-2" [formGroup]="this.Form" (submit)="this.onSubmit(this.Form.value)">
+    <div class="row align-items-center">
+      <div class="col-12 col-sm-5 col-md-5 col-xl-4">
+        <h2 class="mb-0 text-primary-light">Nombre del área</h2>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-xl-6">
+        <mat-form-field class="w-100" appearance="fill" color="warn">
+          <button mat-icon-button matPrefix type="button">
+            <mat-icon>title</mat-icon>
+          </button>
+          <mat-label>Nombre del área</mat-label>
+          <input matInput placeholder="¿Cuál área es?" formControlName="name">
+          <div *ngIf="this.Form.get('name').errors  && (this.Form.get('name').dirty || this.Form.get('name').touched) ">
+            <small class="text-secondary" *ngIf="this.Form.get('name').hasError('required')">
+              Campo requerido
+            </small>
+            <small class="text-secondary" *ngIf="this.Form.get('name').hasError('maxlength')">
+              Minimo 300 carateres
+            </small>
+          </div>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row align-items-center mt-4">
+      <div class="col-12 col-sm-5 col-md-5 col-xl-4">
+        <h2 class="mb-0 text-primary-light">Tipo de área</h2>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-xl-6">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Seleccionar</mat-label>
+          <mat-select formControlName="id_type_tourist_area">
+            <mat-option *ngFor="let item of this.types" [value]="item.id">
+              {{ item.name }}
+            </mat-option>
+          </mat-select>
+          <div
+            *ngIf="this.Form.get('id_type_tourist_area').errors  && (this.Form.get('id_type_tourist_area').dirty || this.Form.get('id_type_tourist_area').touched) ">
+            <small class="text-secondary" *ngIf="this.Form.get('id_type_tourist_area').hasError('required')">
+              Campo requerido
+            </small>
+          </div>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-12">
+        <h2 class="mb-0 text-primary-light">Descripción</h2>
+      </div>
+      <div class="col-12 pt-2">
+        <ckeditor [editor]="this.Editor" formControlName="description"></ckeditor>
+        <div
+          *ngIf="this.Form.get('description').errors  && (this.Form.get('description').dirty || this.Form.get('description').touched) ">
+          <small class="text-secondary" *ngIf="this.Form.get('description').hasError('required')">
+            Campo requerido
+          </small>
+          <small class="text-secondary" *ngIf="this.Form.get('description').hasError('maxlength')">
+            Maximo 1024 caracteres
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-12">
+        <h2 class="mb-0 text-primary-light">Galería</h2>
+      </div>
+      <div class="col-12">
+        <app-dropzone formControlName="images">
+
+        </app-dropzone>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-12">
+        <h2 class="mb-0 text-primary-light">Geo punto</h2>
+      </div>
+      <div class="col-12">
+        <app-map formControlName="geom">
+        </app-map>
+        <div
+          *ngIf="this.Form.get('geom').errors  && (this.Form.get('geom').dirty || this.Form.get('geom').touched) ">
+          <small class="text-secondary" *ngIf="this.Form.get('geom').hasError('required')">
+            Campo requerido
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4 justify-content-center">
+      <div class="col-12 col-sm-3 col-md-1">
+        <button type="submit" mat-flat-button color="primary" [disabled]="this.Form.invalid"
+          class="btn-block p-2 rounded-lg">
+          <h3 class="mb-0">Guardar</h3>
+        </button>
+      </div>
+    </div>
+  </form>
+
+</div>

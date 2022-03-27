@@ -1,5 +1,6 @@
 mat-sidenav-container {
   height: calc(100vh - 65px);
+  background-color: transparent;
 }
 
 mat-sidenav {
@@ -9,14 +10,11 @@ mat-sidenav {
 }
 
 .content {
-  height: calc(100vh - 98px);
+  height: calc(100vh - 64px);
   border-radius: 10px;
-  margin: 16px;
-  margin-left: 32px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 16px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 .menu-list-item {
