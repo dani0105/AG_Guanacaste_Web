@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private userService: UserService, private router: Router, private toastService:ToastrService) { }
 
   ngOnInit(): void {
+    this.userService.logout();
   }
 
   onSubmit(data) {
