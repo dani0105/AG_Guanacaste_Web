@@ -20,6 +20,14 @@ const routes: Routes = [
       {
         path: 'users',
         loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+      },
+      {
+        path: 'activities',
+        loadChildren: () => import('./activities/activities.module').then(m => m.ActivitiesModule)
+      },
+      {
+        path: 'education-programs',
+        loadChildren: () => import('./education-programs/education-programs.module').then(m => m.EducationProgramsModule)
       }
     ]
   },
@@ -27,7 +35,7 @@ const routes: Routes = [
     path: '',
     redirectTo: '',
     pathMatch: 'full'
-  }
+  },
 ];
 
 @NgModule({
