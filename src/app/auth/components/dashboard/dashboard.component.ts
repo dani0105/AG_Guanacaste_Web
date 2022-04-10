@@ -20,12 +20,13 @@ export class DashboardComponent implements OnInit {
     return this.menu_state;
   }
 
-
   constructor(private userService: UserService,
     private router: Router,) {
     this.menu_items = [
       { link: 'users', label: 'Usuarios' },
-      { link: 'touristic-areas', label: 'Áreas Turisticas' }
+      { link: 'touristic-areas', label: 'Áreas Turisticas' },
+      { link: 'activities', label: 'Actividades' },
+      { link: 'education-programs', label: 'Programas Educativos' }
     ];
     this.menu_state = false;
   }
