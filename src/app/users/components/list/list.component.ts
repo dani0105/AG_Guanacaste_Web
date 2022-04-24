@@ -88,6 +88,7 @@ export class ListComponent implements OnInit {
 
     ref.afterClosed().subscribe(result => {
       if (result && result.object) {
+        console.log(result);
         this.addElement(result.object);
         this.toastService.success('Guardado');
       }

@@ -15,7 +15,7 @@
               <mat-icon>email</mat-icon>
             </button>
             <mat-label>Correo</mat-label>
-            <input matInput placeholder="example@gmail.com" formControlName="email">
+            <input type="email" matInput placeholder="example@gmail.com" formControlName="email">
           </mat-form-field>
         </div> 
       </div> 
@@ -34,7 +34,7 @@
 
       <div class="row justify-content-center mt-5 mb-5"> 
         <div class="col-6 "> 
-          <button mat-flat-button color="primary" [disabled]="this.Form.invalid" class="btn btn-primary btn-block rounded-lg p-2">
+          <button type="submit" mat-flat-button color="primary" [disabled]="this.Form.invalid" class="btn btn-primary btn-block rounded-lg p-2">
             <h3 class="mb-0">Ingresar</h3>
           </button>
         </div> 

@@ -43,7 +43,7 @@ export class CreateComponent implements OnInit {
   private create(data) {
     this.userService.create(data).subscribe(result => {
       if (result.success) {
-        result.data.rol = this.searchRol(result.id_rol);
+        result.data.rol = this.searchRol(result.data.id_rol);
         this.dialogRef.close({ object: result.data });
       }
     })
