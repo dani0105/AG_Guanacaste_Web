@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AcceptDialog } from 'src/app/shared/dialogs';
 import { TouristicAreasService } from '../../services';
 
 @Component({
@@ -28,8 +30,9 @@ export class ListComponent implements OnInit {
 
   constructor(
     private router: Router,
+    public dialog: MatDialog,
     private touristicAreasService: TouristicAreasService,
-    private toastSerice:ToastrService,
+    private toastSerice: ToastrService,
     private activatedroute: ActivatedRoute
   ) {
     this.pagination = {};
@@ -59,12 +62,17 @@ export class ListComponent implements OnInit {
   }
 
   delete(element) {
-    this.touristicAreasService.delete(element.id).subscribe(result => {
-      if (result.success) {
-        this.removeElement(element);
-        this.toastSerice.success('Removido');
+    const ref = this.dialog.open(AcceptDialog);
+    ref.afterClosed().toPromise().then(result => {
+      if (result) {
+        this.touristicAreasService.delete(element.id).subscribe(result => {
+          if (result.success) {
+            this.removeElement(element);
+            this.toastSerice.success('Removido');
+          }
+        })
       }
-    })
+    });
   }
 
   private addElement(element) {

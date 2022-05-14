@@ -10,7 +10,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -23,6 +22,7 @@ import {
   AccessibilityService,
   DifficultyService,
 } from './services';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -32,11 +32,11 @@ import {
   ],
   imports: [
     CommonModule,
+    MatTooltipModule,
     MatIconModule,
     ReactiveFormsModule,
     MatSelectModule,
     MatInputModule,
-    MatPaginatorModule,
     MatProgressSpinnerModule,
     MatTableModule,
     MatFormFieldModule,

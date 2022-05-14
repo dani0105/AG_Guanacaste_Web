@@ -15,7 +15,7 @@ import { CreateComponent } from './dialogs';
 import { RolService, UserService } from './services';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -25,11 +25,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   ],
   imports: [
     CommonModule,
+    MatTooltipModule,
     MatIconModule,
     ReactiveFormsModule,
     MatSelectModule,
     MatInputModule,
-    MatPaginatorModule,
     MatProgressSpinnerModule,
     MatDialogModule,
     MatTableModule,

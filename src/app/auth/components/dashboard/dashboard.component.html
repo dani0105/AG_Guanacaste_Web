@@ -4,7 +4,7 @@
   </button>
   <span>AC Guanacaste</span>
   <span class="spacer"></span>
-  <button mat-icon-button (click)="this.logout()">
+  <button matTooltip="Cerrar sesión" mat-icon-button (click)="this.logout()">
     <mat-icon>logout</mat-icon>
   </button>
 </mat-toolbar>
@@ -13,27 +13,26 @@
     <div class="container-fluid">
       <div class="row mt-4">
         <div class="col-12 text-center">
-          <mat-icon class="icon-profile">
+          <mat-icon class="icon-profile" color="primary">
             account_circle
           </mat-icon>
         </div>
       </div>
       <div class="row mt-5">
         <div class="col-12">
-          <h2 class="mb-0">Menú</h2>
+          <h2 class="mb-0 text-dark">Menú</h2>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
-          <ul class="list-unstyled ml-0 mb-0 ">
-            <li class="menu-list-item p-2" *ngFor="let item of this.Menu">
-              <a class="text-decoration-none text-dark" [routerLink]="[item.link]">
-                <h3 class="mb-0">
-                  {{ item.label }}
-                </h3>
-              </a>
-            </li>
-          </ul>
+
+          <a class="text-decoration-none text-dark menu-list-item w-100 d-block mt-2 p-2" *ngFor="let item of this.Menu" [routerLink]="[item.link]"
+            [routerLinkActive]="['active']">
+            <h3 class="mb-0">
+              {{ item.label }}
+            </h3>
+          </a>
+
         </div>
       </div>
     </div>

@@ -9,3 +9,14 @@
 .background{
   height: 100vh;
 }
+
+
+@media screen and (max-width: 960px) {
+  .login-container {
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

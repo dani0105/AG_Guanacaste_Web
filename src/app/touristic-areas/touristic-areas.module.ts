@@ -15,6 +15,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { TouristicAreasService, TypeTouristAreaService } from './services';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatSelectModule,
     MatInputModule,
     MatPaginatorModule,
+    MatTooltipModule,
     MatProgressSpinnerModule,
     MatTableModule,
     MatFormFieldModule,

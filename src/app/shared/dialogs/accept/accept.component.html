@@ -1,0 +1,12 @@
+<div mat-dialog-content>
+  <mat-icon color="warn" class="align-middle icon">
+    info
+  </mat-icon>
+  <span class="text-secondary alert-message">
+    ¿Está seguro de realizar está acción?
+  </span>
+</div>
+<div class="m-3">
+  <button mat-raised-button class="button" color="warn" [mat-dialog-close]="false" appearance="fill">Cancelar</button>
+  <button mat-raised-button class="button float-right" [mat-dialog-close]="true" color="primary" appearance="fill">Aceptar</button>
+</div>

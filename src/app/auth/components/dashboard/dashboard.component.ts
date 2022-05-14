@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
     this.menu_items = [
       { link: 'users', label: 'Usuarios' },
       { link: 'touristic-areas', label: 'Áreas Turisticas' },
-      { link: 'activities', label: 'Actividades' },
+      { link: 'activities', label: 'Actividades Turisticas' },
       { link: 'education-programs', label: 'Programas Educativos' }
     ];
     this.menu_state = false;

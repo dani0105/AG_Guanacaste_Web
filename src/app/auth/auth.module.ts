@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthService } from './services';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { AuthService } from './services';
     MatSidenavModule,
     MatIconModule,
     MatToolbarModule,
+    MatTooltipModule,
   ],
   exports: [
     LoginComponent,

@@ -7,6 +7,7 @@ import { RolService, UserService } from '../../services';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AcceptDialog } from 'src/app/shared/dialogs';
 
 @Component({
   selector: 'app-list',
@@ -116,12 +117,19 @@ export class ListComponent implements OnInit {
   }
 
   delete(element) {
-    this.userService.delete(element.id).subscribe(result => {
-      if (result.success) {
-        this.removeElement(element);
-        this.toastService.success('Removido');
+    const ref = this.dialog.open(AcceptDialog);
+
+    ref.afterClosed().toPromise().then( result =>{
+      if(result){
+        this.userService.delete(element.id).subscribe(result => {
+          if (result.success) {
+            this.removeElement(element);
+            this.toastService.success('Removido');
+          }
+        });
       }
-    })
+      
+    });    
   }
 
   private addElement(element) {

@@ -22,8 +22,9 @@ mat-sidenav {
   cursor: pointer;
 }
 
-.menu-list-item:hover {
+.menu-list-item:hover, .active, .active:focus{
   background-color: #FFEAD7;
+  color: #8BC7AB!important;
 }
 
 .icon-profile {
