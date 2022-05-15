@@ -1,4 +1,4 @@
-describe('users Module', () => {
+describe('Education Programs Module', () => {
 
   // login en la aplicación
   beforeEach(() => {
@@ -16,7 +16,7 @@ describe('users Module', () => {
 
 
 
-  it('Create Touristic Area', () => {
+  it('Create Education Program', () => {
     cy.intercept('/education-programs').as('create');
     cy.intercept('/upload').as('uploadImage');
 
@@ -60,12 +60,12 @@ describe('users Module', () => {
 
   })
 
-  it('Update Touristic Area', () => {
+  it('Update Education Program', () => {
     cy.intercept('/education-programs/*').as('update');
     cy.intercept('/upload').as('uploadImage');
 
     cy.visit('/dashboard/education-programs');
-    cy.get('td.mat-column-actions').find('a').first().click();
+    cy.get('mat-cell.mat-column-actions').find('a').first().click();
     cy.url().should('include', 'update');
 
     cy.get('input[formcontrolname=name]').clear().type("programa testing update");
@@ -102,11 +102,13 @@ describe('users Module', () => {
 
   })
 
-  it('Delete Touristic Area', () => {
+  it('Delete Education Program', () => {
     cy.intercept('/education-programs/*').as('delete');
     cy.visit('/dashboard/education-programs');
 
-    cy.get('td.mat-column-actions').first().find('button').first().click();
+    cy.get('mat-cell.mat-column-actions').first().find('button').first().click();
+    cy.wait(1000);
+    cy.get('#accept').click();
 
     cy.wait('@delete').then((interception) => {
       expect(interception.response.statusCode).eql(200);

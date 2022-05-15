@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AcceptDialog } from 'src/app/shared/dialogs';
 import { ActivityService } from '../../services';
 
 @Component({
@@ -29,6 +31,7 @@ export class ListComponent {
   constructor(
     private router: Router,
     private toastSerice: ToastrService,
+    public dialog: MatDialog,
     private activatedroute: ActivatedRoute,
     private activityService: ActivityService
   ) {
@@ -56,12 +59,19 @@ export class ListComponent {
   }
 
   delete(element) {
-    this.activityService.delete(element.id).subscribe(result => {
-      if (result.success) {
-        this.removeElement(element);
-        this.toastSerice.success('Removido');
+    const ref = this.dialog.open(AcceptDialog);
+    ref.afterClosed().toPromise().then(result => {
+      if (result) {
+        this.activityService.delete(element.id).subscribe(result => {
+          if (result.success) {
+            this.removeElement(element);
+            this.toastSerice.success('Removido');
+          }
+        })
       }
-    })
+    });
+
+    
   }
 
   private addElement(element) {

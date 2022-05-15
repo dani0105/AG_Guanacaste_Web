@@ -37,7 +37,7 @@ describe('users Module', () => {
     cy.intercept('/users/*').as('updateUser');
 
     cy.visit('/dashboard/users');
-    cy.get('td.mat-column-actions').find('button').first().click();
+    cy.get('mat-cell.mat-column-actions').find('button').first().click();
     let date = new Date();
     let email = `${date.getTime()}@random.com`;
     cy.wait(400);
@@ -58,8 +58,11 @@ describe('users Module', () => {
     cy.intercept('/users/*').as('deleteUser');
 
     cy.visit('/dashboard/users');
-    cy.get('td.mat-column-actions').first().find('button').last().click();
 
+    cy.get('mat-cell.mat-column-actions').first().find('button').last().click();
+    cy.wait(1000);
+    cy.get('#accept').click();
+    
     cy.wait('@deleteUser').then((interception) => {
       expect(interception.response.statusCode).eql(200);
     });

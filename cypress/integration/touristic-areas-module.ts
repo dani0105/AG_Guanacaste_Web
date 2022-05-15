@@ -1,4 +1,4 @@
-describe('users Module', () => {
+describe('Touristic Areas Module', () => {
 
   // login en la aplicación
   beforeEach(() => {
@@ -61,7 +61,7 @@ describe('users Module', () => {
     cy.intercept('/upload').as('uploadImage');
 
     cy.visit('/dashboard/touristic-areas');
-    cy.get('td.mat-column-actions').find('a').first().click();
+    cy.get('mat-cell.mat-column-actions').find('a').first().click();
     cy.url().should('include', 'update');
 
     cy.get('input[formcontrolname=name]').clear().type("Area Turistica Testing Update");
@@ -120,7 +120,9 @@ describe('users Module', () => {
     cy.intercept('/touristic-areas/*').as('delete');
     cy.visit('/dashboard/touristic-areas');
 
-    cy.get('td.mat-column-actions').first().find('button').first().click();
+    cy.get('mat-cell.mat-column-actions').first().find('button').first().click();
+    cy.wait(1000);
+    cy.get('#accept').click();
 
     cy.wait('@delete').then((interception) => {
       expect(interception.response.statusCode).eql(200);
