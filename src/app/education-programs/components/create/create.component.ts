@@ -96,7 +96,7 @@ export class CreateComponent implements OnInit {
     this.educationProgramService.create(data).subscribe(result => {
       if (result.success) {
         this.toastService.success('Guardado');
-        this.router.navigate(['/dashboard', 'education-program'], { queryParamsHandling: 'preserve' })
+        this.router.navigate(['/dashboard', 'education-programs'], { queryParamsHandling: 'preserve' })
       }
     })
   }
@@ -106,7 +106,7 @@ export class CreateComponent implements OnInit {
     this.educationProgramService.update(this.id, data).subscribe(result => {
       if (result.success) {
         this.toastService.success('Guardado');
-        this.router.navigate(['/dashboard', 'education-program'], { queryParamsHandling: 'preserve' })
+        this.router.navigate(['/dashboard', 'education-programs'], { queryParamsHandling: 'preserve' })
       }
     })
   }
